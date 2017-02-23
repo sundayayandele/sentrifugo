@@ -46,11 +46,11 @@ class Default_Form_oncallrequest extends Zend_Form
 		$issatholiday = new Zend_Form_Element_Hidden('is_sat_holiday');
         		
 		$oncalltypeid = new Zend_Form_Element_Select('oncalltypeid');
-        $oncalltypeid->setAttrib('class', 'selectoption');
-      /** commented on 04-02-2015 **/
-	    $oncalltypeid->addMultiOption('','Select On Call Type');
-        $oncalltypeid->setRegisterInArrayValidator(false);
-        $oncalltypeid->setRequired(true);
+		$oncalltypeid->setLabel("On Call Type");
+    $oncalltypeid->setAttrib('class', 'selectoption');
+    $oncalltypeid->addMultiOption('','Select On Call Type');
+    $oncalltypeid->setRegisterInArrayValidator(false);
+    $oncalltypeid->setRequired(true);
 		$oncalltypeid->addValidator('NotEmpty', false, array('messages' => 'Please select on call type.'));
        
         $oncallday = new Zend_Form_Element_Select('oncallday');
