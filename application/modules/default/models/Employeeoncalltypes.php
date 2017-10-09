@@ -96,7 +96,7 @@ class Default_Model_Employeeoncalltypes extends Zend_Db_Table_Abstract
 	  $select = $this->select()
 		               ->setIntegrityCheck(false)
                    ->from(array('e'=>'main_employeeoncalltypes'),array('e.id','e.oncalltype','e.numberofdays','e.oncallpredeductable'))
-						       ->where('e.isactive = 1 AND e.oncalltype NOT IN(?)', $params)
+						       ->where('e.isactive = 1 AND e.oncalltype IN(?)', $params)
 						       ->order('e.oncalltype');
 		return $this->fetchAll($select)->toArray();		
 	}
