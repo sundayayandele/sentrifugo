@@ -23,6 +23,7 @@ error_reporting(E_ALL | E_STRICT);
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);
 
+
 $os_string = php_uname('s');
 
 if (strpos(strtoupper($os_string), 'WIN')!==false)
@@ -38,7 +39,7 @@ else
 defined('LIMIT')|| define('LIMIT', 20);
 defined('NA')|| define('NA', 0);
 defined('YEAR')|| define('YEAR', 1900);
-defined('PERPAGE')|| define('PERPAGE', 20);
+defined('PERPAGE')|| define('PERPAGE', 200);
 defined('DASHBOARD_PERPAGE')|| define('DASHBOARD_PERPAGE', 10);
 // Define path to application directory
 defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
@@ -124,6 +125,7 @@ defined('WEEKDAYS')|| define('WEEKDAYS',81);
 defined('DEPARTMENTS')|| define('DEPARTMENTS',11);
 defined('EDUCATIONLEVELCODE')|| define('EDUCATIONLEVELCODE', 125);
 defined('EEOCCATEGORY')|| define('EEOCCATEGORY',  115);
+defined('PROJECTTYPE')|| define('PROJECTTYPE',  920);
 defined('EMAILCONTACTS')|| define('EMAILCONTACTS', 136);
 defined('EMPBENEFITSUSENROLLMENT')|| define('EMPBENEFITSUSENROLLMENT',39);
 defined('EMPLEAVESUMMARY')|| define('EMPLEAVESUMMARY', 45);
@@ -234,11 +236,17 @@ defined('RAISE_INCIDENT')|| define('RAISE_INCIDENT', 203);
 defined('MY_INCIDENT')|| define('MY_INCIDENT', 204);
 defined('TEAM_INCIDENT')|| define('TEAM_INCIDENT', 205);
 defined('CLIENTS')|| define('CLIENTS', 208);
+defined('EXIT_QUESTIONS')|| define('EXIT_QUESTIONS', 210);
 // Controllers which are not there in main_menu
 defined('VIEWSETTINGS')|| define('VIEWSETTINGS', 'VIEWSETTINGS');
 defined('DASHBOARD')|| define('DASHBOARD', 'DASHBOARD');
 defined('LOGMANAGER')|| define('LOGMANAGER', 'LOGMANAGER');
 defined('USERLOGINLOG')|| define('USERLOGINLOG', 'USERLOGINLOG');
+
+/*Exit procedure menus*/
+defined('EXITINITIALSTATUS')|| define('EXITINITIALSTATUS', 180);
+defined('EXITPROCEDURE')|| define('EXITPROCEDURE', 177);
+
 
 //Manage Moduels Array
 defined('MANAGE_MODULE_ARRAY')|| define('MANAGE_MODULE_ARRAY', serialize (array(TIMEMANAGEMENT,RESOURCEREQUISITION,BGCHECKS,REPORTS,SERVICEDESK,PERFORMANCEAPPRAISAL)));
@@ -295,6 +303,7 @@ defined('WEEKDAYS_DELETE')|| define('WEEKDAYS_DELETE','week day');
 defined('DEPARTMENTS_DELETE')|| define('DEPARTMENTS_DELETE','department');
 defined('EDUCATIONLEVELCODE_DELETE')|| define('EDUCATIONLEVELCODE_DELETE', 'education level code');
 defined('EEOCCATEGORY_DELETE')|| define('EEOCCATEGORY_DELETE',  'EEOC category');
+defined('PROJECTTYPE_DELETE')|| define('PROJECTTYPE_DELETE',  'Project type');
 defined('EMAILCONTACTS_DELETE')|| define('EMAILCONTACTS_DELETE', 'email contact');
 defined('EMPBENEFITSUSENROLLMENT_DELETE')|| define('EMPBENEFITSUSENROLLMENT_DELETE','employee benefits us enrollment');
 defined('EMPLEAVESUMMARY_DELETE')|| define('EMPLEAVESUMMARY_DELETE', 'leave');
@@ -384,6 +393,7 @@ defined('POLICYDOCUMENTS_DELETE')|| define('POLICYDOCUMENTS_DELETE','document');
 defined('VISAANDIMMIGRATIONDETAILS_DELETE')|| define('VISAANDIMMIGRATIONDETAILS_DELETE','visa and immigration details');
 
 defined('EXITTYPES_DELETE')|| define('EXITTYPES_DELETE','exit type');
+defined('CONFIGUREEXITQS_DELETE')|| define('CONFIGUREEXITQS_DELETE','exit type questions');
 defined('EXITPROCSETTINGS_DELETE')|| define('EXITPROCSETTINGS_DELETE','exit procedure setting');
 defined('ALLEXITPROC_DELETE')|| define('ALLEXITPROC_DELETE','exit procedure');
 
@@ -395,7 +405,8 @@ defined('DISCIPLINARYTEAMINCIDENTS_DELETE')|| define('DISCIPLINARYTEAMINCIDENTS_
 defined('DISCIPLINARYINCIDENT_DELETE')|| define('DISCIPLINARYINCIDENT_DELETE','disciplinary incident');
 defined('DISCIPLINARYVIOLATION_DELETE')|| define('DISCIPLINARYVIOLATION_DELETE','Violation Type');
 defined('DISCIPLINARYALLINCIDENTS_DELETE')|| define('DISCIPLINARYALLINCIDENTS_DELETE','Violation Type');
-
+defined('EXITTYPES_DELETE')|| define('EXITTYPES_DELETE','exittypes');
+defined('EXITPROC_DELETE')|| define('EXITPROC_DELETE','exitproc');
 
 defined('ASSETS_DELETE')|| define('ASSETS_DELETE','asset');
 defined('ASSETCATEGORIES_DELETE')|| define('ASSETCATEGORIES_DELETE','asset category');
@@ -600,10 +611,10 @@ defined('PAYMENTMODE_DELETE')|| define('PAYMENTMODE_DELETE','paymentmode');
 defined('EXPENSECATEGORIES_DELETE')|| define('EXPENSECATEGORIES_DELETE','categories');
 defined('EMPLOYEEADVANCES_DELETE')|| define('EMPLOYEEADVANCES_DELETE','employeeadvances');
 defined('PROJECTTASKS_DELETE')|| define('PROJECTTASKS_DELETE','project tasks');
-defined('PROJECTRESOURCES_DELETE')|| define('PROJECTRESOURCES_DELETE','project resource');
-defined('EMPLOYEEPROJECTS_DELETE')|| define('EMPLOYEEPROJECTS_DELETE','employee projects delete');
-defined('LEADPROJECTS_DELETE')|| define('LEADPROJECTS_DELETE','lead projects delete');
-
+defined('PROJECTRESOURCES_DELETE')|| define('PROJECTRESOURCES_DELETE','project resource'); 
+defined('EMPLOYEEPROJECTS_DELETE')|| define('EMPLOYEEPROJECTS_DELETE','employee projects delete'); 
+defined('LEADPROJECTS_DELETE')|| define('LEADPROJECTS_DELETE','lead projects delete'); 
+defined('EXIT_MEDIA_PATH') || define('EXIT_MEDIA_PATH', $domainurl.'/public/media/exit/');
 //==========================END FOR TIME MANAGEMENT CONSTANTS=============================
 /**
  * EXPENSES CONSTANTS GOES FROM HERE
