@@ -87,6 +87,18 @@ class Default_Model_Employeeoncalltypes extends Zend_Db_Table_Abstract
 		return $this->fetchAll($select)->toArray();
 
 	}
+	public function getselectedoncalltype($oncalltypestr)
+	{
+	  if($oncalltypestr !='')
+	  $params = explode(",",$oncalltypestr);
+		  
+	  $select = $this->select()
+		               ->setIntegrityCheck(false)
+                   ->from(array('e'=>'main_employeeoncalltypes'),array('e.id','e.oncalltype','e.numberofdays','e.oncallpredeductable'))
+						       ->where('e.isactive = 1 AND e.id NOT IN(?)', $params)
+						       ->order('e.employemnt_status');
+		return $this->fetchAll($select)->toArray();		
+	}
 	public function getGrid($sort,$by,$perPage,$pageNo,$searchData,$call,$dashboardcall,$exParam1='',$exParam2='',$exParam3='',$exParam4='')
 	{
         $searchQuery = '';$tablecontent = '';  $searchArray = array();$data = array();$id='';

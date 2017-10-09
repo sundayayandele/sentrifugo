@@ -204,21 +204,40 @@ class Default_OncallrequestController extends Zend_Controller_Action
 		 Start
 		 Query to fetch and build multioption for Oncalltype dropdown
 		*/
-		$oncalltype = $employeeoncalltypemodel->getactiveoncalltype();
-   		if(!empty($oncalltype))
-		    {
-				if(sizeof($oncalltype) > 0)
-				{
-					foreach ($oncalltype as $oncalltyperes){
-						$oncallrequestform->oncalltypeid->addMultiOption($oncalltyperes['id'].'!@#'.$oncalltyperes['numberofdays'].'!@#'.$oncalltyperes['oncalltype'],$oncalltyperes['oncalltype']);
-					}
-				}
-			}
-		else
+		$activeOncalltypeArr = $employeeoncalltypemodel->getactiveoncalltype();
+		$newarr = array();  
+    $oncalltypestr = '';
+        
+   	if(!empty($activeOncalltypeArr)) 
+    {
+	    for($i=0;$i<sizeof($activeOncalltypeArr);$i++)
 			{
-				$msgarray['oncalltypeid'] = ' On call types are not configured yet.';
+        $newarr1[] = $activeOncalltypeArr[$i]['oncalltype'];
 			}
-			$this->view->oncalltype = $oncalltype;
+				
+      $oncalltypestr = implode(",",$newarr1);
+
+		  if($oncalltypestr !='')
+			   $oncalltypeArr = $employeeoncalltypemodel->getselectedoncalltype($oncalltypestr);
+		  else
+			   $oncalltypeArr = $activeOncalltypeArr;
+      
+		  if(!empty($oncalltypeArr))
+		  {
+			     $oncallrequestform->oncalltypeid->addMultiOption('','Select On Call Type');
+
+			     for($i=0;$i<sizeof($oncalltypeArr);$i++)
+			     {
+				         $oncallrequestform->oncalltypeid->addMultiOption($oncalltypeArr[$i]['id'],$oncalltypeArr[$i]['numberofdays'],$oncalltypeArr[$i]['oncalltype'],$oncalltypeArr[$i]['oncalltype']);
+			     }
+		  }
+
+		  $this->view->oncalltype = $oncalltype;
+		} 
+    else 
+    {
+			$msgarray['oncalltypeid'] = ' On call types are not configured yet.';
+		} 
 		/* End */
 
 		/*
