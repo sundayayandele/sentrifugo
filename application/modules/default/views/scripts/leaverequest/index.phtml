@@ -147,10 +147,13 @@
 							    $("#leaverequestform").dialog({
 									open: function(event, ui) {
 
-										 checkerrorvalidation();
-										  datepickerappend();
-
-										 },
+									  checkerrorvalidation();
+										datepickerappend();
+		                $("#s2id_leaveday, #s2id_leavetypeid").select2({
+						          tags: true,
+						          dropdownParent: $("#leaverequestform")
+				           	});
+        					},
 									draggable:false,
 									resizable: false,
 									height:'auto',

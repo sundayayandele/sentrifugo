@@ -46,6 +46,7 @@ class Default_Form_leaverequest extends Zend_Form
 		$issatholiday = new Zend_Form_Element_Hidden('is_sat_holiday');
         		
 		$leavetypeid = new Zend_Form_Element_Select('leavetypeid');
+		$leavetypeid->setLabel("LeaveType");
         $leavetypeid->setAttrib('class', 'selectoption');
       /** commented on 04-02-2015 **/
 	    $leavetypeid->addMultiOption('','Select Leave Type');
