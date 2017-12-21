@@ -147,8 +147,9 @@ class Default_Form_employee extends Zend_Form
 		$prefix_id->getValidator('Db_RecordExists')->setMessage('Selected prefix is deleted.');	        
 				
 		$extension_number = new Zend_Form_Element_Text('extension_number');
-		$extension_number->setAttrib('maxLength', 10);
-		$extension_number->setLabel("Extension");
+		$extension_number->setAttrib('maxLength', 8);
+		$extension_number->setLabel("Personnel Number");
+		$extension_number->setRequired(true);
 		$extension_number->addFilter(new Zend_Filter_StringTrim());
 		$extension_number->addValidator("regex",true,array(                          
                            'pattern'=>'/^[0-9]+$/',
@@ -173,6 +174,7 @@ class Default_Form_employee extends Zend_Form
         $office_faxnumber = new Zend_Form_Element_Text('office_faxnumber');
         $office_faxnumber->setAttrib('maxLength', 30);
 		$office_faxnumber->setLabel("Enterprise ID");
+		$office_faxnumber->setRequired(true);
         $office_faxnumber->addFilter(new Zend_Filter_StringTrim());
 		
 		$yearsofexp = new Zend_Form_Element_Text('years_exp');

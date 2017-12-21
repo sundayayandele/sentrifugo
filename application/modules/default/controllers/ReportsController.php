@@ -1191,6 +1191,8 @@ class Default_ReportsController extends Zend_Controller_Action
 		$columns_array = array(
                         'employeeId' => 'Employee ID',
                         'userfullname' => 'Employee',
+                        'office_faxnumber' => 'Enterprise ID',
+                        'extension_number' => 'Personnel Number',
                         'emailaddress' => 'Email',
                         'contactnumber' => 'Mobile',
                         'emprole_name' => 'Role',
@@ -1206,29 +1208,34 @@ class Default_ReportsController extends Zend_Controller_Action
                         'years_exp' => 'Client user ID',
                         'holiday_group_name' => 'Holiday Group',
                         'office_number' => 'Work Phone',
-                        'extension_number' => 'Extension Number',
                         'backgroundchk_status' => 'Background Check Status',
                         'other_modeofentry' => 'Mode of Entry(Other)',
                         'referer_name' => 'Referred By',
                         'currencyname' => 'Cost Currency',
                         'freqtype' => 'Charge Frequency',
                         'salary' => 'Cost',
+												'competencylevel' => 'Competency Area',                              
 
 		);
 		$mandatory_array = array(
                         'employeeId' => 'Employee ID',
                         'userfullname' => 'Employee',
+                        'office_faxnumber' => 'Enterprise ID',
+                        'extension_number' => 'Personnel Number',
                         'emailaddress' => 'Email',
                         'contactnumber' => 'Mobile',
                         'emprole_name' => 'Role',
                         'reporting_manager_name' => 'Reporting Manager',
                         'jobtitle_name' => 'Career Track',
-                        // 'position_name' => 'Career Level',
+                        'position_name' => 'Career Level',
                         'businessunit_name' => 'Business Unit',
                         'department_name' => 'Department',
-						/*'emp_status_name' => 'Employment Status',*/
+						            'emp_status_name' => 'Employment Status',
                         'date_of_joining' => 'Date of Joining',  
-												'date_of_leaving' => 'Date of Leaving',                                  
+												'date_of_leaving' => 'Date of Leaving',  
+												'competencylevel' => 'Competency Area',   
+												'course_name' => 'Last Course Name',
+												'issued_date' => 'Last Course Date',
 		);
 		/* if($type == 'all')
 		return $columns_array;
