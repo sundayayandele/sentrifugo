@@ -25,7 +25,7 @@ function viewTimeEntry(year_month) {
 	  //console.log(" year_month "+year_month);	
 	 // var url = base_url + module_name + "/index/week?flag=time&selYrMon="+year_month;
 	 // window.location.href = url;
-	  window.location.href = base_url+"/timeentry/"+year_month+"///time";
+	  window.location.href = base_url+"/timeentry/"+year_month+"/1/0/time";
 }
 function  viewEnterTime(week,calWeek) {
 	 var selYrMon = $("#calSelYrMonth").val();
@@ -52,14 +52,20 @@ function monthlyView(){
 function getWeekData(flag,weekNo,calWeek,day) {
 	if(day == undefined )
 		day = '';
+
+   if(flag == undefined )
+		flag = 'none';
+      
+   if(flag == '' )
+		flag = 'none';
 	
    var selYrMon = $("#calSelYrMonth").val();
    var url = base_url + module_name + "/index/week";
 	//window.location.href = url+'?selYrMon='+selYrMon+'&week='+weekNo+'&calWeek='+calWeek+'&flag='+flag+'&day='+day;
-   if(flag != 'time')
-	   window.location.href = base_url+'/weekview/'+selYrMon+'/'+weekNo+'/'+calWeek+'/'+flag+'/'+day;
+   if(flag != 'time')	  
+     window.location.href = base_url+'/weekview/'+selYrMon+'/'+weekNo+'/'+calWeek+'/'+flag+'/'+day;
    else    
-	    window.location.href = base_url+'/timeentry/'+selYrMon+'/'+weekNo+'/'+calWeek+'/'+flag+'/'+day;
+	  window.location.href = base_url+'/timeentry/'+selYrMon+'/'+weekNo+'/'+calWeek+'/'+flag+'/'+day;
 }
 function editWeekData(flag,day) {
 	
@@ -198,7 +204,7 @@ function submitWeekTimesheet(week, calWeek, submitText) {
           					 $("#error_message").html('<div id="messageData" class="ml-alert-1-' + flag + '"><div style="display:block;"><span class="style-1-icon ' + flag + '"></span>' + response.message + '</div></div>'); 
           					 setTimeout(function() {
           							$('#error_message').fadeIn('slow').fadeOut(function() {
-          					       location.href = base_url +"/weekview/"+selYrMon+"/"+week+"/"+calWeek+"//";		
+          					       location.href = base_url +"/weekview/"+selYrMon+"/"+week+"/"+calWeek+"/none/";		
           							});
           						}, 3000);
           					//location.href = base_url + module_name + "/index/week?week="+week+"&calWeek="+calWeek+"&selYrMon="+selYrMon;
@@ -643,13 +649,10 @@ function refreshgrid(objname, dashboardcall,projectId,otherAction,start_date,end
 	if(otherAction != '' && otherAction == "employeereports")
 		dataparam = dataparam +'&start_date=' + start_date + '&end_date=' + end_date;
 	
-	if(otherAction != '' && otherAction == "billingemployeereports")
-		dataparam = dataparam +'&start_date=' + start_date + '&end_date=' + end_date;
+	if(otherAction != '' && otherAction == "billingreport")
+		dataparam = dataparam +'&start_date=' + start_date + '&end_date=' + end_date + '&projecttype=' + projecttype;
 	
 	if(otherAction != '' && otherAction == "projectreports")
-		dataparam = dataparam + '&emp_id=' + emp_id + '&start_date=' + start_date + '&end_date=' + end_date;
-	
-	if(otherAction != '' && otherAction == "billingprojectreports")
 		dataparam = dataparam + '&emp_id=' + emp_id + '&start_date=' + start_date + '&end_date=' + end_date;
 	
 	if(otherAction != '' && (otherAction == "viewexpensereports" || otherAction == "expensereports"))
@@ -757,13 +760,10 @@ function getsearchdata(objname, conText, colname, event, etype,projectId,otherAc
 	if(otherAction != '' && otherAction == "employeereports")
 		dataparam = dataparam + '&start_date=' + start_date + '&end_date=' + end_date;
 	
-	if(otherAction != '' && otherAction == "billingemployeereports")
-		dataparam = dataparam + '&start_date=' + start_date + '&end_date=' + end_date;
+	if(otherAction != '' && otherAction == "billingreport")
+		dataparam = dataparam + '&start_date=' + start_date + '&end_date=' + end_date + '&projecttype=' + projecttype;
 	
 	if(otherAction != '' && otherAction == "projectreports")
-		dataparam = dataparam + '&emp_id=' + emp_id + '&start_date=' + start_date + '&end_date=' + end_date;
-	
-	if(otherAction != '' && otherAction == "billingprojectreports")
 		dataparam = dataparam + '&emp_id=' + emp_id + '&start_date=' + start_date + '&end_date=' + end_date;
 
 	$('#search_data_pdf').val(searchData); 
@@ -869,13 +869,10 @@ function getAjaxgridData(objname, dashboardcall,projectId,otherAction,start_date
 	if(otherAction != '' && otherAction == "employeereports")
 		dataparam = dataparam + '&start_date=' + start_date + '&end_date=' + end_date;
 	
-	if(otherAction != '' && otherAction == "billingemployeereports")
-		dataparam = dataparam + '&start_date=' + start_date + '&end_date=' + end_date;
+	if(otherAction != '' && otherAction == "billingreport")
+		dataparam = dataparam + '&start_date=' + start_date + '&end_date=' + end_date + '&projecttype=' + projecttype;
 	
 	if(otherAction != '' && otherAction == "projectreports")
-		dataparam = dataparam + '&emp_id=' + emp_id + '&start_date=' + start_date + '&end_date=' + end_date;
-		
-	if(otherAction != '' && otherAction == "billingprojectreports")
 		dataparam = dataparam + '&emp_id=' + emp_id + '&start_date=' + start_date + '&end_date=' + end_date;
 	
 	if (searchData != '' && searchData != 'undefined')
@@ -884,7 +881,7 @@ function getAjaxgridData(objname, dashboardcall,projectId,otherAction,start_date
 	$('#' + objname + '_searchdata').remove();
 	$('#footer').append("<input type='hidden' value='" + searchData + "' id='" + objname + "_searchdata' />");
 	$('#footer').append('<input type="hidden" value="' + objname + '" id="objectName" />');
-	if(otherAction == "projectsreports" || otherAction == "billingprojectsreports" || otherAction == "employeereports" || otherAction == "billingemployeereports")
+	if(otherAction == "projectsreports" || otherAction == "employeereports" || otherAction == "billingreport")
 	{
 		url =  url +"/format/html";
 	}

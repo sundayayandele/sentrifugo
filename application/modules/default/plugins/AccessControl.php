@@ -102,7 +102,7 @@ protected function _getAcl()
 									$acl->allow($tmroleText[$role], 'timemanagement:index', array('index','week','edit','view','getstates','converdate'));
 
 		 $acl->addResource(new Zend_Acl_Resource('timemanagement:reports'));
-									$acl->allow($tmroleText[$role], 'timemanagement:reports', array('index','employeereports','billingemployeereports','projectsreports','billingprojectsreports','getempduration','getprojecttaskduration','tmreport','billingreport'));
+									$acl->allow($tmroleText[$role], 'timemanagement:reports', array('index','employeereports','projectsreports','getempduration','getprojecttaskduration','tmreport','billingreport'));
 
 		 $acl->addResource(new Zend_Acl_Resource('timemanagement:clients'));
 									$acl->allow($tmroleText[$role], 'timemanagement:clients', array('index','edit','view','delete','addpopup'));
@@ -156,7 +156,7 @@ protected function _getAcl()
 									$acl->allow($tmroleText[$role], 'timemanagement:projecttasks', array('index','viewtasksresources','deletetask','assignresourcestotask','saveresources','edittaskname'));
 
 		 $acl->addResource(new Zend_Acl_Resource('timemanagement:reports'));
-									$acl->allow($tmroleText[$role], 'timemanagement:reports', array('index','employeereports','billingemployeereports','projectsreports','billingprojectsreports','getempduration','getprojecttaskduration','tmreport','billingreport'));
+									$acl->allow($tmroleText[$role], 'timemanagement:reports', array('index','employeereports','projectsreports','getempduration','getprojecttaskduration','tmreport','billingreport'));
 
 		 $acl->addResource(new Zend_Acl_Resource('timemanagement:emptimesheets'));
 									$acl->allow($tmroleText[$role], 'timemanagement:emptimesheets', array('index','displayweeks','getmonthlyspan','accordion','employeetimesheet','empdisplayweeks','emptimesheetmonthly','emptimesheetweekly','enabletimesheet','approvetimesheet','rejecttimesheet','approvedaytimesheet','rejectdaytimesheet','getweekstartenddates'));
@@ -177,7 +177,7 @@ protected function _getAcl()
 									$acl->allow($tmroleText[$role], 'timemanagement:expenses', array('index','edit','view','delete','download','uploadpreview','getprojectbyclientid','getfilename','submitexpense','expensereports','viewexpenses','viewexpensereports','updateexpensestatus','updateexpensestatus','updateexpensestatus','updateexpensestatus','updateexpensestatus','updateexpensestatus','updateexpensestatus','updateexpensestatus','updateexpensestatus'));
 
 		 $acl->addResource(new Zend_Acl_Resource('timemanagement:reports'));
-									$acl->allow($tmroleText[$role], 'timemanagement:reports', array('index','employeereports','billingemployeereports','projectsreports','billingprojectsreports','getempduration','getprojecttaskduration','tmreport','billingreport'));
+									$acl->allow($tmroleText[$role], 'timemanagement:reports', array('index','employeereports','projectsreports','getempduration','getprojecttaskduration','tmreport','billingreport'));
  } 
 		
 	   $acl->addResource(new Zend_Acl_Resource('login:index'));	
@@ -691,7 +691,7 @@ protected function _getAcl()
                             $acl->allow('management', 'default:clients', array('index','addpopup','add','edit','delete','view','Clients'));
 
 		 $acl->addResource(new Zend_Acl_Resource('default:competencylevel'));
-                            $acl->allow('management', 'default:competencylevel', array('index','addpopup','add','edit','delete','view','Competency Levels'));
+                            $acl->allow('management', 'default:competencylevel', array('index','addpopup','add','edit','delete','view','Competency Areas'));
 
 		 $acl->addResource(new Zend_Acl_Resource('default:countries'));
                             $countries_add = 'yes';
@@ -1305,7 +1305,7 @@ protected function _getAcl()
                             $acl->allow('hrmanager', 'default:clients', array('index','addpopup','add','edit','delete','view','upload','uploadview','Clients'));
 
 		 $acl->addResource(new Zend_Acl_Resource('default:competencylevel'));
-                            $acl->allow('hrmanager', 'default:competencylevel', array('index','addpopup','add','edit','view','Competency Levels'));
+                            $acl->allow('hrmanager', 'default:competencylevel', array('index','addpopup','add','edit','view','Competency Areas'));
 
 		 $acl->addResource(new Zend_Acl_Resource('default:dashboard'));
                         $acl->allow('hrmanager', 'default:dashboard', array('index','saveuserdashboard','getwidgtes','upgradeapplication','emailsettings','changepassword','editpassword','update','uploadpreview','viewprofile','viewsettings','savemenuwidgets','getmenuname','fetchmenuname','getnavids','getopeningpositondate','menuwork','employeeimageupdate'));
