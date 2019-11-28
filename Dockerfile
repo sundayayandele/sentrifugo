@@ -1,6 +1,6 @@
 FROM php:7.1.12-apache
 COPY /php/php.ini /usr/local/etc/php/
-COPY /. /var/www/html/
+COPY --chown=www-data:www-data . /var/www/html/
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
